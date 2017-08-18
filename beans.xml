@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+	<bean id="User" class="com.duan.bean.User">
+		<param name="name" value="xiaowang"></param>
+		<param name="pwd" value="1234567"></param>
+	</bean>
+	<bean id="MySqlDaoImp" class="com.duan.dao.MySqlDaoImp"></bean>
+	<bean id="OracleDaoImp" class="com.duan.dao.MyOracleDaoImp"></bean>
+	<bean id="UserService" class="com.duan.service.UserService">
+		<param name="dao" ref="MySqlDaoImp"></param>
+	</bean>	
+	<bean id="Handler1" class="com.duan.aop.MyInvocationHandler">
+		<param name="target" ref="MySqlDaoImp"></param>
+	</bean>	
+	<bean id="Handler2" class="com.duan.aop.MyInvocationHandler">
+		<param name="target" ref="OracleDaoImp"></param>
+	</bean>	
+	
+</beans>
